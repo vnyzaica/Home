@@ -1,4 +1,4 @@
-len('spam')
+f = open('document.txt', "w")
 
 lst = [
     ["Имя Фамилия 1", 20],
@@ -20,4 +20,11 @@ names = ['Василий', 'Маша', 'Гера']
 st = [ len(a) for a in names if len(a) > 4]
 
 print( st )
+x = 10
+
+f = open('document.txt', "w")
+
+f.write(str(x) + '\n' + str(x))
+f.close()
+
 
