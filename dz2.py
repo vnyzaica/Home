@@ -1,4 +1,7 @@
-file = open('file.txt') #Можно довабить ,"a+" и тогда файл создаться
+try:
+    file = open('file.txt') #Можно довабить ,"a+" и тогда файл создаться
+except :
+    file = open('file.txt','a+',)
 z = file.read()
 print (z)
 file.close()
