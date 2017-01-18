@@ -36,17 +36,42 @@ class Ui_MainWindow(object):
         sait = (self.lineEdit.text)
         self.label.setText(sait())
 		
-#Зайти на сайт 
-svn list (sait)
-#Cкачать 
-svn update
-#переместить
-svn move "рипозиторий" "x"
-x=x+1
+#Создать папку
+os.mkdir(name)	
+	
 #открыть cmd
 import os
 os.system(r'C:\WINDOWS\system32\cmd.exe')
-		
+
+#Зайти на сайт 
+svn list (sait)
+
+#Cкачать 
+svn update
+
+#переместить
+svn move "рипозиторий" "x"
+x=x+1
+
+#архивы
+import zipfile
+import os
+import time
+time = datetime.datetime.now() # Время и дата
+#как записать в название файла дату и время
+z = zipfile.ZipFile('spam,"x".zip', 'w')        # Создание нового архива
+for root, dirs, files in os.walk('folder'): # Список всех файлов и папок в директории folder
+for file in files:
+   z.write(os.path.join(root,file))         # Создание относительных путей и запись файлов в архив
+z.close()
+
+#Удалить папку
+import os
+import shutil
+path = 'C://qq/'#Путь
+shutil.rmtree(path)#процесс удаления
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
