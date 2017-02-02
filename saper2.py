@@ -46,7 +46,7 @@ print ("#8",pole[80:89])
 while h == 1:
     #while len(x)!= 2 :
     x = int(input("Write right coordinats  "))
-    if mina[x] == "1" :
+    if mina[x] == 1 :
         lose()
     else :
         pole[x] = "0"
