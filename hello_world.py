@@ -40,7 +40,7 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Введите адрес"))
     def myFunction(self):
         site = (self.lineEdit.text)
-        self.label.setText(sait())
+        self.label.setText(site())
         if os.path.exists("/home/py/qq1") == True :#??????
             pass
         else:
@@ -61,11 +61,11 @@ class Ui_MainWindow(object):
 #z = zipfile.ZipFile('time{}.zip'.format(time)) # Создание нового архива
         z = zipfile.ZipFile('file.zip')
         for root, dirs, files in os.walk('folder'): # Список всех файлов и папок в директории folder
-        for file in files:
-        z.write(os.path.join(root,file)) # Создание относительных путей и запись файлов в архив
-        z.close()
-        connection=sqlite3.connect('database')#создаём соединение с базой данных
-        cursor=connection.cursor()#создаём курсор - основной инструмент работы с БД
+            for file in files:
+                z.write(os.path.join(root,file)) # Создание относительных путей и запись файлов в архив
+                z.close()
+                connection=sqlite3.connect('database')#создаём соединение с базой данных
+                connection.cursor()#создаём курсор - основной инструмент работы с БД
 
 
         cursor.execute('create table pupils (name char(30),mark integer(1))')#создаём таблицу
