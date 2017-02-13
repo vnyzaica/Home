@@ -1,11 +1,6 @@
 #coding:utf-8
 from PyQt5 import QtCore, QtGui, QtWidgets
-import zipfile
-import os
-import time
-import shutil
-import sqlite3
-import datetime
+import webbrowser
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -33,52 +28,20 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         self.pushButton.clicked.connect(self.myFunction)
+
+        
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Work"))
         self.pushButton.setText(_translate("MainWindow", "Download"))
         self.label.setText(_translate("MainWindow", "Введите адрес"))
+
+
     def myFunction(self):
-        site = (self.lineEdit.text)
-        self.label.setText(site())
-        if os.path.exists("/home/py/qq1") == True :#??????
-            pass
-        else:
-            os.mkdir("/home/py/qq1") 
-
-
-        if os.path.exists("/home/py/download") == True :
-            pass
-        else:
-            os.mkdir("/home/py/download") 
-            os.system("/home/py/qq1")
-            os.system("git clone {}".format(site))#Команда
-#os.system("svn update")
-#os.system("svn move "рипозиторий" "x"")
-
-        time = datetime.time() # Время и дата
-#как записать в название файла дату и время
-#z = zipfile.ZipFile('time{}.zip'.format(time)) # Создание нового архива
-        z = zipfile.ZipFile('file.zip')
-        for root, dirs, files in os.walk('folder'): # Список всех файлов и папок в директории folder
-            for file in files:
-                z.write(os.path.join(root,file)) # Создание относительных путей и запись файлов в архив
-                z.close()
-                connection=sqlite3.connect('database')#создаём соединение с базой данных
-                connection.cursor()#создаём курсор - основной инструмент работы с БД
-
-
-        cursor.execute('create table pupils (name char(30),mark integer(1))')#создаём таблицу
-        cursor.execute('insert into pupils values (?,?)',(time,sait))#заносим в таблицу значения
-        connection.commit()#сохраняем изменения
-        connection.close()
-
-
-#Удалить папку
-        path = '/home/py/qq1'#Путь
-        shutil.rmtree(path)#процесс удаления
-
-
+        site = (self.lineEdit.text())
+        z = site
+        x = z.replace(".git","/archive/master.zip")
+        webbrowser.open(x)
 
 if __name__ == "__main__":
     import sys
